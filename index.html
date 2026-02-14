@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy birthday, Sidra! 🎂</title>
+    <!-- Fonts & Icons for a lovely touch -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Quicksand:wght@300;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            background: linear-gradient(145deg, #fbc2c2 0%, #f8a5c2 100%);
+            font-family: 'Quicksand', sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1.5rem;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* floating petals / soft shapes (purely decorative) */
+        .floating-heart {
+            position: absolute;
+            color: rgba(255, 255, 255, 0.3);
+            font-size: 2rem;
+            user-select: none;
+            pointer-events: none;
+            z-index: 1;
+            animation: float 8s infinite ease-in-out;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-25px) rotate(8deg); }
+            100% { transform: translateY(0px) rotate(0deg); }
+        }
+
+        .heart1 { top: 5%; left: 8%; animation-delay: 0s; }
+        .heart2 { bottom: 12%; right: 5%; font-size: 3rem; animation-delay: 1.5s; }
+        .heart3 { top: 20%; right: 15%; animation-delay: 2.2s; }
+        .heart4 { bottom: 25%; left: 12%; animation-delay: 0.7s; }
+
+        .birthday-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 48px 48px 48px 48px;
+            box-shadow: 0 30px 50px rgba(233, 98, 146, 0.3), 0 15px 30px rgba(0,0,0,0.1);
+            max-width: 750px;
+            width: 100%;
+            padding: 2.8rem 2.5rem;
+            border: 2px solid rgba(255, 255, 255, 0.5);
+            transition: all 0.3s;
+            position: relative;
+            z-index: 10;
+        }
+
+        .date-tag {
+            display: inline-block;
+            background: #ff90b5;
+            color: white;
+            padding: 0.5rem 1.8rem;
+            border-radius: 40px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            font-size: 1.2rem;
+            margin-bottom: 1.8rem;
+            box-shadow: 0 6px 0 #c95f89;
+            border: 1px solid #ffe2ed;
+        }
+
+        .date-tag i {
+            margin-right: 0.5rem;
+        }
+
+        h1 {
+            font-size: 4.5rem;
+            font-weight: 700;
+            color: #a63462;
+            line-height: 1.1;
+            margin-bottom: 0.5rem;
+            text-shadow: 4px 4px 0 #ffd9e6;
+            font-family: 'Dancing Script', cursive;
+            letter-spacing: 2px;
+        }
+
+        .shine {
+            background: linear-gradient(135deg, #fe8c8c 0%, #ff4d6d 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .subhead {
+            font-size: 1.4rem;
+            color: #632c4a;
+            font-weight: 500;
+            margin-bottom: 1.8rem;
+            border-left: 5px solid #ffb3c6;
+            padding-left: 1.3rem;
+            background: rgba(255, 255, 255, 0.4);
+            border-radius: 0 30px 30px 0;
+            width: fit-content;
+            padding: 0.6rem 1.8rem 0.6rem 1.8rem;
+        }
+
+        .subhead i {
+            color: #e63946;
+            margin: 0 0.3rem;
+        }
+
+        .message-box {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 2rem 2.2rem;
+            border-radius: 35px;
+            margin: 2rem 0 2rem 0;
+            box-shadow: inset 0 0 0 2px white, 0 10px 20px rgba(197, 90, 116, 0.2);
+            border: 1px solid #ffe2f0;
+        }
+
+        .message-box p {
+            font-size: 1.5rem;
+            line-height: 1.6;
+            font-family: 'Dancing Script', cursive;
+            font-weight: 500;
+            color: #2f1b2b;
+        }
+
+        .message-box i.fa-quote-left {
+            color: #ff8aa1;
+            font-size: 2.5rem;
+            vertical-align: middle;
+            margin-right: 10px;
+            opacity: 0.7;
+        }
+
+        .message-box .signature {
+            margin-top: 1.8rem;
+            text-align: right;
+            font-family: 'Quicksand', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #a63b5b;
+            border-top: 2px dashed #ffb8c9;
+            padding-top: 1rem;
+            letter-spacing: 1px;
+        }
+
+        .countdown-section {
+            background: rgba(250, 235, 240, 0.7);
+            border-radius: 50px;
+            padding: 1.4rem 1.8rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 15px;
+            border: 2px solid white;
+            margin-top: 1.5rem;
+        }
+
+        .countdown-title {
+            font-weight: 700;
+            color: #942e54;
+            font-size: 1.2rem;
+        }
+
+        .countdown-title i {
+            margin-right: 0.5rem;
+            color: #ff4d6d;
+        }
+
+        #countdown-timer {
+            font-size: 2rem;
+            font-weight: 700;
+            font-family: 'Quicksand', sans-serif;
+            background: #fff0f3;
+            padding: 0.3rem 1.2rem;
+            border-radius: 40px;
+            color: #bc4e74;
+            box-shadow: 0 4px 0 #e0a1b5;
+            letter-spacing: 2px;
+        }
+
+        .cake-icon {
+            font-size: 2rem;
+            display: inline-block;
+            animation: wobble 3s infinite;
+        }
+
+        @keyframes wobble {
+            0%,100% { transform: rotate(0deg); }
+            25% { transform: rotate(6deg); }
+            75% { transform: rotate(-6deg); }
+        }
+
+        .btn-wish {
+            background: #ffb1c0;
+            border: none;
+            padding: 0.9rem 2rem;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #4f293b;
+            cursor: pointer;
+            box-shadow: 0 6px 0 #b35f7a;
+            transition: all 0.1s ease;
+            border: 1px solid white;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            margin-top: 1.5rem;
+        }
+
+        .btn-wish:active {
+            transform: translateY(6px);
+            box-shadow: none;
+        }
+
+        .btn-wish i {
+            font-size: 1.5rem;
+        }
+
+        footer {
+            margin-top: 2rem;
+            text-align: center;
+            color: #773d54;
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        footer i {
+            color: #ff4d6d;
+        }
+
+        /* responsive */
+        @media (max-width: 550px) {
+            .birthday-card { padding: 2rem 1.2rem; }
+            h1 { font-size: 3.2rem; }
+            .message-box p { font-size: 1.3rem; }
+            #countdown-timer { font-size: 1.4rem; }
+        }
+    </style>
+</head>
+<body>
+    <!-- floating decoration hearts (js not needed, just css beauty) -->
+    <i class="fas fa-heart floating-heart heart1"></i>
+    <i class="fas fa-star floating-heart heart2" style="color: rgba(255,240,200,0.4);"></i>
+    <i class="fas fa-heart floating-heart heart3"></i>
+    <i class="fas fa-heart floating-heart heart4"></i>
+    
+    <main class="birthday-card" id="birthdayCard">
+        <!-- fixed date: 26 feb -->
+        <div class="date-tag">
+            <i class="fas fa-calendar-alt"></i> 26 February · the special day
+        </div>
+
+        <h1><span class="shine">Happy Birthday</span> <br> Sidra! 🎉</h1>
+        
+        <div class="subhead">
+            <i class="fas fa-crown"></i> celebrate with joy <i class="fas fa-crown"></i>
+        </div>
+
+        <!-- beautiful paragraph generated and manipulated via js, but also present in static html (enhanced with js) -->
+        <div class="message-box" id="messageBox">
+            <i class="fas fa-quote-left"></i>
+            <p id="bdayParagraph">
+                <!-- JS will fill this with a beautiful paragraph, but we also put a fallback / initial one -->
+                On this day, the world became a little warmer, a little brighter — because you arrived. May your heart be as light as confetti, your smile as endless as the stars, and this year ahead be filled with gentle magic. ✨
+            </p>
+            <div class="signature">with so much love, <br> from all who adore you 🌸</div>
+        </div>
+
+        <!-- countdown area + cake animation (dynamic days until next birthday) -->
+        <div class="countdown-section">
+            <span class="countdown-title"><i class="fas fa-hourglass-half"></i> countdown to 26 Feb</span>
+            <span id="countdown-timer">--d --h --m --s</span>
+        </div>
+
+        <!-- interactive button to refresh the beautiful paragraph with another lovely message (js) -->
+        <button class="btn-wish" id="newWishBtn">
+            <i class="fas fa-wand-magic"></i> another sweet wish for Sidra
+        </button>
+
+        <footer>
+            <i class="fas fa-cake-candles cake-icon"></i> 26th February – Sidra's day <i class="fas fa-cake-candles cake-icon"></i>
+        </footer>
+    </main>
+
+    <script>
+        (function() {
+            // make everything warm and interactive for Sidra's birthday
+
+            // 1) BEAUTIFUL PARAGRAPH array (heartfelt, for Sidra)
+            const beautifulMessages = [
+                "Sidra, you are like the first bloom of spring — full of grace, color, and quiet strength. Today the universe celebrates the masterpiece it created when you were born. Keep shining, always.",
+                "Happy birthday to someone whose kindness is a gentle river and whose laughter is sunlight. Sidra, may this year wrap you in moments so beautiful they become forever memories.",
+                "On 26 February, magic happened. The stars whispered your name, and the world got a little sweeter. You, Sidra, are a gift to everyone lucky enough to know you. Celebrate wildly!",
+                "Sidra, your soul has a way of making ordinary days feel like celebrations. Today is your official day to be showered with the same warmth you give so freely. Happy birthday, lovely one.",
+                "For Sidra: may your heart always find what it seeks, and may your path be lined with petals, laughter, and the deepest love. You deserve every beautiful thing.",
+                "Another trip around the sun, and you’ve made it more radiant just by being you. Sidra, happy birthday — keep being the masterpiece you are.",
+                "Wishing Sidra a day as beautiful as her spirit, as sweet as her smile, and as bright as her future. Happy 26th Feb, wonderful soul!"
+            ];
+
+            // 2) reference to paragraph element
+            const paraElement = document.getElementById('bdayParagraph');
+            
+            // 3) function to set a random beautiful paragraph
+            function setRandomMessage() {
+                const randomIndex = Math.floor(Math.random() * beautifulMessages.length);
+                paraElement.textContent = beautifulMessages[randomIndex];
+            }
+
+            // 4) set initial random paragraph (overwrites fallback, but it's okay — more personalized)
+            setRandomMessage();
+
+            // 5) button click changes paragraph
+            const wishBtn = document.getElementById('newWishBtn');
+            wishBtn.addEventListener('click', function() {
+                setRandomMessage();
+                // optional tiny animation: change background momentarily
+                const msgBox = document.getElementById('messageBox');
+                msgBox.style.transition = 'background 0.3s';
+                msgBox.style.background = '#fff2f5';
+                setTimeout(() => {
+                    msgBox.style.background = 'rgba(255, 255, 255, 0.9)';
+                }, 200);
+            });
+
+            // 6) COUNTDOWN to 26th Feb (birthday logic)
+            function updateCountdown() {
+                const today = new Date();
+                const currentYear = today.getFullYear();
+                
+                // Create date object for next 26 Feb (considering if birthday passed this year)
+                let nextBirthday = new Date(currentYear, 1, 26); // month 1 = February (0-index)
+                
+                // If today is after Feb 26, set nextBirthday to next year
+                if (today > nextBirthday) {
+                    nextBirthday.setFullYear(currentYear + 1);
+                } else if (today.getMonth() === 1 && today.getDate() === 26) {
+                    // If today IS Feb 26, show "TODAY! 🎂"
+                    document.getElementById('countdown-timer').innerHTML = `🎉 TODAY! 🎉`;
+                    return;
+                }
+                
+                const diffMs = nextBirthday - today;
+                
+                // Time calculations
+                const diffSeconds = Math.floor(diffMs / 1000);
+                const days = Math.floor(diffSeconds / 86400);
+                const hours = Math.floor((diffSeconds % 86400) / 3600);
+                const minutes = Math.floor((diffSeconds % 3600) / 60);
+                const seconds = diffSeconds % 60;
+                
+                const timerSpan = document.getElementById('countdown-timer');
+                timerSpan.innerHTML = `${days}d ${hours.toString().padStart(2,'0')}h ${minutes.toString().padStart(2,'0')}m ${seconds.toString().padStart(2,'0')}s`;
+            }
+
+            // initial call
+            updateCountdown();
+            // update every second
+            setInterval(updateCountdown, 1000);
+
+            // 7) Extra personalization: if you want to show a special message if today is 26 Feb (done in updateCountdown)
+            // also could add something for the date but it's already in the date tag.
+
+            // 8) small confetti or visual love? not needed, but we can log a happy message in console
+            console.log("✨ Happy birthday, Sidra! This site was made just for you ✨");
+        })();
+    </script>
+
+    <!-- additional inline style for special date if needed, but no extra needed -->
+    <style>
+        /* Extra love: make sure date stands out */
+        .date-tag {
+            background: linear-gradient(145deg, #ff98b5, #ff6b96);
+            border: 1px solid #ffeef4;
+        }
+        .btn-wish:hover {
+            background: #ffc1cf;
+        }
+    </style>
+</body>
+</html>
